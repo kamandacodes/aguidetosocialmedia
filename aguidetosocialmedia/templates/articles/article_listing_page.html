@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags %}
+
+{% load tailwind_tags %}
+
+
+{% block content %}
+    {% tailwind_css %}
+    <div class="container bg-blue-300">
+        
+        {% for post in posts %}
+            {{ post.title }}
+            <br />
+        {% endfor %}
+    </div>
+    
+
+{% endblock content %}

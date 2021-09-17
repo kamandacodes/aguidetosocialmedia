@@ -1,0 +1,1 @@
+Wagtail is Django on steroids and gives more options to create amazing apps. With the Tailwind integration I have added a little fun to the mix because of the ability to edit CSS on the fly within the markup.
