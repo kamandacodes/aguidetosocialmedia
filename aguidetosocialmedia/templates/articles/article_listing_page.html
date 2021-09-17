@@ -1,13 +1,15 @@
 {% extends "base.html" %}
-
+{% load static wagtailcore_tags wagtailuserbar %}
 {% load wagtailimages_tags %}
-
-{% load tailwind_tags %}
-
+{% block extra_css %}
+{% comment %}
+Delete the line below if you're just getting started and want to remove the welcome screen!
+{% endcomment %}
+<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+{% endblock extra_css %}
 
 {% block content %}
-    {% tailwind_css %}
-    <div class="container bg-blue-300">
+    <div class="container bg-blue-300 mt-8">
         
         {% for post in posts %}
             {{ post.title }}
@@ -15,5 +17,6 @@
         {% endfor %}
     </div>
     
+{% include 'home/welcome_page.html' %}
 
 {% endblock content %}
