@@ -1,22 +1,31 @@
 {% extends "base.html" %}
 {% load static wagtailcore_tags wagtailuserbar %}
 {% load wagtailimages_tags %}
-{% block extra_css %}
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
-{% endblock extra_css %}
+
 
 {% block content %}
-    <div class="container bg-blue-300 mt-8">
+    <div class="container grid grid-cols-3 gap-4 justify-between items-center mx-auto p-4 rounded-xl mt-8">
         
         {% for post in posts %}
-            {{ post.title }}
-            <br />
+            <div class="bg-gray-500 p-4 rounded-md">
+
+                <div>
+                    {% image post.article_image fill-250x250 as article_img %}
+                    <a href="{{ post.url }}">
+                        <img src="{{ article_img.url }}" alt="{{ article_img.alt }}">
+                    
+                    </a>
+
+                </div>
+                <div>
+                    <a href="{{ post.url }}" class="uppercase font-bold text-xl">
+                        {{ post.title }}
+                    
+                    </a>
+
+                </div>
+            </div>
         {% endfor %}
     </div>
     
-{% include 'home/welcome_page.html' %}
-
 {% endblock content %}

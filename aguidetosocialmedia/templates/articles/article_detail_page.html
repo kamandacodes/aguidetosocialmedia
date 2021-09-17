@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags wagtailcore_tags %}
+
+
+{% block content %}
+    <div class="shadow-lg">
+    
+    {% image self.article_image fill-1200x300 as banner %}
+    <img src="{{ banner.url }}" alt="{{ banner.alt }}" style="width: 100%; height: auto;">
+    </div>
+
+    <div class="container mt-5 mb-5">
+        <div class="">
+            <h1 class="text-center uppercase font-bold text-xl">
+                {{ self.title }}
+            </h1>
+        </div>
+    </div>
+
+    <div class="bg-blue-500">
+        {% for block in self.content %}
+            {% include_block block %}
+        {% endfor %}
+    </div>
+{% endblock %}
+
